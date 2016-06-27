@@ -178,7 +178,7 @@ namespace Random_Generator
             Clipboard.SetText(generatedPass.Text);
         }
 
-        private void genBitmap()
+        private void genBitmap(object sender, EventArgs e)
         {
             int height = Convert.ToInt32(heightBox.Text), width = Convert.ToInt32(widthBox.Text);
 
@@ -189,23 +189,34 @@ namespace Random_Generator
             {
                 for (int x = 0; x < width; x++)
                 {
-                    int a = rnd.Next(256);
-                    int r = rnd.Next(256);
-                    int g = rnd.Next(256);
-                    int b = rnd.Next(256);
+                    int a;
+                    int r;
+                    int g;
+                    int b;
+
+                    if (bAndW.Checked == false)
+                    {
+                        a = rnd.Next(256);
+                        r = rnd.Next(256);
+                        g = rnd.Next(256);
+                        b = rnd.Next(256);
+                    }
+                    else
+                    {
+                        a = rnd.Next(256);
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
 
                     bm.SetPixel(x, y, Color.FromArgb(a, r, g, b));
                 }
             }
             pictureBox1.Image = bm;
+            savebtn.Enabled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            genBitmap();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void saveImage(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Bitmap Image|*.bmp";
@@ -219,5 +230,37 @@ namespace Random_Generator
                 pictureBox1.Image.Save(saveFileDialog1.FileName);
             }
        }
+
+        private void widthHeightValidation(object sender, EventArgs e)
+        {
+            if (widthBox.Text.All(Char.IsDigit) == true && heightBox.Text.All(Char.IsDigit) == true)
+            {
+                if ((widthBox.Text == "" || Convert.ToInt32(widthBox.Text) > 5000 || Convert.ToInt32(widthBox.Text) <= 0) || (heightBox.Text == "" || Convert.ToInt32(heightBox.Text) > 5000 || Convert.ToInt32(heightBox.Text) <= 0))
+                {
+                    genBM.Enabled = false;
+                }
+                else
+                {
+                    genBM.Enabled = true;
+                }
+            }
+            else
+            {
+                genBM.Enabled = false;
+            }
+        }
+
+        private void genPin_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            string newPin = "";
+
+            for (int i = 0; i < Convert.ToInt16(pinLen.Text); i++)
+            {
+                newPin = newPin + rnd.Next(10);
+            }
+
+            generatedPin.Text = newPin;
+        }
     }
 }

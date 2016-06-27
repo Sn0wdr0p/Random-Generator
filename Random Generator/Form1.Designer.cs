@@ -44,14 +44,28 @@
             this.passLen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pin = new System.Windows.Forms.TabPage();
+            this.pinLen = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.heightBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.widthBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.genBM = new System.Windows.Forms.Button();
+            this.savebtn = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.password.SuspendLayout();
+            this.pin.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.password);
             this.tabControl.Controls.Add(this.pin);
+            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -218,6 +232,8 @@
             // 
             // pin
             // 
+            this.pin.Controls.Add(this.pinLen);
+            this.pin.Controls.Add(this.label4);
             this.pin.Location = new System.Drawing.Point(4, 22);
             this.pin.Name = "pin";
             this.pin.Padding = new System.Windows.Forms.Padding(3);
@@ -225,6 +241,98 @@
             this.pin.TabIndex = 1;
             this.pin.Text = "Pin Number Gen";
             this.pin.UseVisualStyleBackColor = true;
+            // 
+            // pinLen
+            // 
+            this.pinLen.Location = new System.Drawing.Point(112, 10);
+            this.pinLen.Name = "pinLen";
+            this.pinLen.Size = new System.Drawing.Size(42, 20);
+            this.pinLen.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Desired Pin Length:";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.savebtn);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.heightBox);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.widthBox);
+            this.tabPage1.Controls.Add(this.pictureBox1);
+            this.tabPage1.Controls.Add(this.genBM);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(408, 384);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Bitmap";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(94, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Height:";
+            // 
+            // heightBox
+            // 
+            this.heightBox.Location = new System.Drawing.Point(141, 6);
+            this.heightBox.Name = "heightBox";
+            this.heightBox.Size = new System.Drawing.Size(41, 20);
+            this.heightBox.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Width:";
+            // 
+            // widthBox
+            // 
+            this.widthBox.Location = new System.Drawing.Point(47, 6);
+            this.widthBox.Name = "widthBox";
+            this.widthBox.Size = new System.Drawing.Size(41, 20);
+            this.widthBox.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(402, 292);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // genBM
+            // 
+            this.genBM.Location = new System.Drawing.Point(13, 327);
+            this.genBM.Name = "genBM";
+            this.genBM.Size = new System.Drawing.Size(169, 54);
+            this.genBM.TabIndex = 0;
+            this.genBM.Text = "Generate Bitmap Image";
+            this.genBM.UseVisualStyleBackColor = true;
+            this.genBM.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // savebtn
+            // 
+            this.savebtn.Location = new System.Drawing.Point(236, 327);
+            this.savebtn.Name = "savebtn";
+            this.savebtn.Size = new System.Drawing.Size(169, 54);
+            this.savebtn.TabIndex = 6;
+            this.savebtn.Text = "Save This Image";
+            this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // mainWindow
             // 
@@ -238,6 +346,11 @@
             this.tabControl.ResumeLayout(false);
             this.password.ResumeLayout(false);
             this.password.PerformLayout();
+            this.pin.ResumeLayout(false);
+            this.pin.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,6 +373,16 @@
         private System.Windows.Forms.Label generatedPass;
         private System.Windows.Forms.Button generate;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox pinLen;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button genBM;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox heightBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox widthBox;
+        private System.Windows.Forms.Button savebtn;
     }
 }
 

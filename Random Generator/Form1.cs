@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace Random_Generator
 {
@@ -175,5 +177,47 @@ namespace Random_Generator
         {
             Clipboard.SetText(generatedPass.Text);
         }
+
+        private void genBitmap()
+        {
+            int height = Convert.ToInt32(heightBox.Text), width = Convert.ToInt32(widthBox.Text);
+
+            Random rnd = new Random();
+            Bitmap bm = new Bitmap(width, height);
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int a = rnd.Next(256);
+                    int r = rnd.Next(256);
+                    int g = rnd.Next(256);
+                    int b = rnd.Next(256);
+
+                    bm.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+                }
+            }
+            pictureBox1.Image = bm;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            genBitmap();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Bitmap Image|*.bmp";
+            saveFileDialog1.Title = "Save an Image File";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.ShowDialog();
+
+            // If the file name is not an empty string open it for saving.
+            if (saveFileDialog1.FileName != "")
+            {
+                pictureBox1.Image.Save(saveFileDialog1.FileName);
+            }
+       }
     }
 }
